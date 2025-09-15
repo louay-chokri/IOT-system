@@ -1,30 +1,3 @@
-import machine
-from machine import Pin, SoftI2C, ADC, PWM
-from i2c_lcd import I2cLcd  
-import time
-import dht
-import network
-import urequests
-import ujson
-import os
-import socket
-import _thread
-from time import ticks_ms, ticks_diff
-
-
-class IoTSystem:
-    def __init__(self):
-        # I2C LCD Configuration
-        self.I2C_ADDR = 0x27
-        self.I2C_NUM_ROWS = 4
-        self.I2C_NUM_COLS = 20
-        self.i2c = SoftI2C(scl=Pin(17), sda=Pin(16), freq=400000) 
-        try:
-            self.lcd = I2cLcd(self.i2c, self.I2C_ADDR, self.I2C_NUM_ROWS, self.I2C_NUM_COLS)
-            print("LCD initialized successfully!")
-        except Exception as e:
-            print("Error initializing LCD:", e)
-            self.lcd = None
 
     def main_loop(self):
         while True:
@@ -116,6 +89,4 @@ class IoTSystem:
                                 self.menu_displayed = False
             time.sleep(0.01)
 
-if __name__ == "__main__":
-    iot_system = IoTSystem()
-    iot_system.main_loop()
+
