@@ -1,13 +1,21 @@
+Design and implementation of an IoT-based environmental monitoring system for
+monitoring environmental parameters (temperature, humidity) using sensors and
+a microcontroller (ESP32).
+Set up and integrate data into a cloud platform (ThingSpeak) for
+real-time monitoring and analysis.
+Programming was conducted in Python with the purpose of automating data processing and
+visualizations.
+Demonstration of initiative and the ability to apply theoretical knowledge in practice.
 
-    def main_loop(self):
-        while True:
-            self.check_button()
-            current_time = ticks_ms()
-            if self.system_active and self.wlan and self.wlan.isconnected():
-                if ticks_diff(current_time, self.last_sensor_read) >= self.sensor_interval:
-                    self.read_all_sensors()
-                    self.check_limits_and_alert()
-                    self.last_sensor_read = current_time
+        def main_loop(self):
+            while True:
+                self.check_button()
+                current_time = ticks_ms()
+                if self.system_active and self.wlan and self.wlan.isconnected():
+                    if ticks_diff(current_time, self.last_sensor_read) >= self.sensor_interval:
+                        self.read_all_sensors()
+                        self.check_limits_and_alert()
+                        self.last_sensor_read = current_time
 
                 if ticks_diff(current_time, self.last_data_send) >= self.data_interval:
                     if self.temp is not None and self.hum is not None:
