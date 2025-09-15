@@ -11,6 +11,7 @@ import socket
 import _thread
 from time import ticks_ms, ticks_diff
 
+
 class IoTSystem:
     def __init__(self):
         # I2C LCD Configuration
